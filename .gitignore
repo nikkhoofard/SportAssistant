@@ -1,4 +1,5 @@
 .env
 /ac
-*/migration
+*/migrations/*
 .idea/
+*/__init__.py
