@@ -46,9 +46,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
 
-    'account',
-
     "corsheaders",
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +111,7 @@ SIMPLE_JWT = {
 DJOSER = {
     'LOGIN_FIELD' : 'email',
     'USER_CREATE_PASSWORD_RETYPE' : True,
-    'ACTIVATION_URL' : 'api/auth/users/activation/{uid}/{token}',
+    'ACTIVATION_URL' : 'activation/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL' : True,
     'SEND_CONFIRMATION_EMAIL' : True,
     'PASSWORD_CHANGED_EMAIL_CONFIRMATION' : True,
@@ -122,15 +121,10 @@ DJOSER = {
     'TOKEN_MODEL': None, #to delete user must set be none!
     'SERIALIZERS': {
         'user_create': 'account.serializers.UserCreateSerializer',
-        'user': 'account.serializers.UserCreateSerializer',
+        #'user': 'account.serializers.UserCreateSerializer',
+        'current_user': 'account.serializers.UserSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
-    },
-    'EMAIL': {
-        'activation': 'account.email.ActivationEmail',
-        'confirmation': 'account.email.ConfirmationEmail',
-        'password_reset': 'account.email.PasswordResetEmail',
-        'password_changed_confirmation': 'account.email.PasswordChangedConfirmationEmail',
-    },
+    }
 }
 #Email  Configuration 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

@@ -41,9 +41,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
 
     name = models.CharField(max_length=255)
-    height = models.IntegerField()
-    weight = models.IntegerField()
-    birthday = models.DateField()
+    height = models.IntegerField(default=0)
+    weight = models.IntegerField(default=0)
+    birthday = models.DateField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

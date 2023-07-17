@@ -1,7 +1,13 @@
-from djoser.serializers import UserCreateSerializer
+from djoser.serializers import UserCreateSerializer,UserSerializer
 from account.models import User
 
 class UserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
         fields = ('id', 'email', 'name', 'password')
+
+
+class UserSerializer(UserSerializer):
+    class Meta(UserSerializer.Meta):
+        model = User
+        fields = ('id', 'email', 'name','password','birthday', 'height', 'weight')
