@@ -110,13 +110,13 @@ SIMPLE_JWT = {
 
 #DJOSER SETTINGS
 DJOSER = {
-    'LOGIN_FIELD': 'email',
+    'LOGIN_FIELD' : 'email',
     'USER_CREATE_PASSWORD_RETYPE' : True,
-    'ACTIVATION_URL': 'api/auth/users/activation/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
-    'SEND_CONFIRMATION_EMAIL': True,
-    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
-    'PASSWORD_RESET_CONFIRM_URL': 'password_reset/{uid}/{token}',
+    'ACTIVATION_URL' : 'api/auth/users/activation/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL' : True,
+    'SEND_CONFIRMATION_EMAIL' : True,
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION' : True,
+    'PASSWORD_RESET_CONFIRM_URL' : 'password_reset/{uid}/{token}',
     'SET_PASSWORD_RETYPE': True,
     'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
     'TOKEN_MODEL': None, #to delete user must set be none!
@@ -132,7 +132,7 @@ DJOSER = {
         'password_changed_confirmation': 'account.email.PasswordChangedConfirmationEmail',
     },
 }
-#Email configuration
+#Email  Configuration 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -190,7 +190,9 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',)
 }
 
 SIMPLE_JWT = {
