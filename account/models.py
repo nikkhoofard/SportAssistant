@@ -21,7 +21,7 @@ class UserManager(BaseUserManager):
 
     # create and sava superuser with an email, name and password
     def create_superuser(self, email, name, is_admin=False, password=None):
-        user = self.model(
+        user = self.create_user(
             email=email,
             password=password,
             name=name,
@@ -61,7 +61,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.name
 
     def has_perm(self):
-        "dose the user haav a specific permission?"
+
         return self.is_admin
 
     def has_module_perms(self, app_lavel):
