@@ -60,7 +60,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_full_name(self):
         return self.name
 
-    def has_perm(self):
+    def has_perm(self, is_admin):
 
         return self.is_admin
 
