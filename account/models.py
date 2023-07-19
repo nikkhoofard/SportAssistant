@@ -60,8 +60,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_full_name(self):
         return self.name
 
-    def has_perm(self, is_admin):
-
+    def has_perm(self, is_admin, *args, **kwargs):
         return self.is_admin
 
     def has_module_perms(self, app_lavel):
